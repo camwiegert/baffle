@@ -16,7 +16,7 @@ const defaults = {
         '\u003e',
         '\u002f'
     ],
-    speed: 75,
+    speed: 50,
     chance: 1
 };
 
