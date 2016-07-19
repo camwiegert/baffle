@@ -23,10 +23,22 @@ const defaults = {
 function scramble(el, options) {
     let opts = extend(defaults, options),
         init = el.textContent,
-        map  = getInitBitmap(init, opts.chance);
-    setInterval(() => {
-        el.textContent = obscure(init, map, opts.characters)
-    }, opts.speed);
+        map  = getInitBitmap(init, opts.chance),
+        interval;
+
+    const run = () => el.textContent = obscure(init, map, opts.characters);
+
+    return {
+        start() {
+            interval = setInterval(run, opts.speed);
+            return this;
+        },
+        stop() {
+            clearInterval(interval);
+            el.textContent = init;
+            return this;
+        }
+    };
 }
 
 /**
