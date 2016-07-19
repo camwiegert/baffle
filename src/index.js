@@ -30,6 +30,7 @@ function scramble(el, options) {
 
     return {
         start() {
+            clearInterval(interval);
             interval = setInterval(run, opts.speed);
             return this;
         },
