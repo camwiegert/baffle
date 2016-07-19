@@ -27,13 +27,9 @@ function scramble(el, options) {
         interval;
 
     const run = () => el.textContent = obscure(init, map, opts.characters);
+    interval = setInterval(run, opts.speed);
 
     return {
-        start() {
-            clearInterval(interval);
-            interval = setInterval(run, opts.speed);
-            return this;
-        },
         stop() {
             clearInterval(interval);
             el.textContent = init;
