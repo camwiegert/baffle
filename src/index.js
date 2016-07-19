@@ -16,26 +16,27 @@ const defaults = {
         '\u003e',
         '\u002f'
     ],
-    speed: 75
+    speed: 75,
+    chance: 1
 };
 
 function scramble(el, options) {
     let opts = extend(defaults, options),
         init = el.textContent,
-        map  = mapString(init, char => 1);
+        map  = getInitBitmap(init, opts.chance);
     setInterval(() => {
         el.textContent = obscure(init, map, opts.characters)
     }, opts.speed);
 }
 
-// Extend one object with another.
-function extend(obj, ext) {
-    for (let key in ext) {
-        if (ext.hasOwnProperty(key)) {
-            obj[key] = ext[key];
-        }
-    }
-    return obj;
+/**
+* Take a string and return an array where the corresponding index
+* is either 0 or 1.
+*/
+function getInitBitmap(str, prob) {
+    return str
+        .split('')
+        .map(() => maybe(prob) ? 1 : 0);
 }
 
 /**
@@ -50,8 +51,24 @@ function obscure(str, map, chars) {
     });
 }
 
+// Extend one object with another.
+function extend(obj, ext) {
+    for (let key in ext) {
+        if (ext.hasOwnProperty(key)) {
+            obj[key] = ext[key];
+        }
+    }
+    return obj;
+}
+
+// Transform each character in a string.
 function mapString(str, fn) {
     return str.split('').map(fn).join('');
+}
+
+// Return random boolean with probability.
+function maybe(prob = 0.5) {
+    return Math.random() - prob < 0;
 }
 
 // Get a random item from an array.
