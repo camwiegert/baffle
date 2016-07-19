@@ -1,0 +1,35 @@
+{
+  "name": "scrambler",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack -wp",
+    "build": "webpack -p",
+    "lint": "eslint src/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camwiegert/scrambler.git"
+  },
+  "babel": {
+      "presets": [
+          "es2015"
+      ]
+  },
+  "eslintConfig": {
+      "extends": "eslint:recommended",
+      "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    }
+  },
+  "author": "Cam Wiegert <cam@camwiegert.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "eslint": "^3.1.1",
+    "webpack": "^1.13.1"
+  }
+}

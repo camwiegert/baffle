@@ -1,0 +1,18 @@
+# Node stuff.
+node_modules/
+npm-debug.log
+
+# Folder view config.
+.DS_Store
+.DS_Store?
+
+# Thumbnail caches.
+._*
+Thumbs.db
+
+# File system stuff.
+.Spotlight-V100
+.Trashes
+
+# Test page
+index.html
