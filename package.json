@@ -1,7 +1,7 @@
 {
   "name": "scrambler",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "That 90s cable look, but for text.",
   "scripts": {
     "start": "webpack -wp",
     "build": "webpack -p",
@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/camwiegert/scrambler.git"
   },
+  "homepage": "https://camwiegert.github.io/scrambler",
   "babel": {
       "presets": [
           "es2015"
