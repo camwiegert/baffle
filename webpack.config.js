@@ -1,15 +1,15 @@
 const webpack = require('webpack'),
       package = require('./package');
 
-const banner = `Scrambler.js ${package.version} - ${package.description}\nCopyright (c) ${ new Date().getFullYear() } ${package.author} - ${package.homepage}\nLicense: ${package.license}`;
+const banner = `${package.name} ${package.version} - ${package.description}\nCopyright (c) ${ new Date().getFullYear() } ${package.author} - ${package.homepage}\nLicense: ${package.license}`;
 
 module.exports = {
     context: __dirname + '/src',
     entry: './index.js',
     output: {
         path: __dirname + '/dist',
-        filename: 'scrambler.min.js',
-        'library': 'scrambler',
+        filename: `${package.name}.min.js`,
+        'library': `${package.name}`,
         'libraryTarget': 'umd'
     },
     module: {

@@ -27,7 +27,7 @@ const defaults = {
     chance: 1
 };
 
-function scramble(el, options) {
+function scrambler(el, options) {
     let opts = extend(defaults, options),
         text = el.textContent,
         map  = getInitBitmap(text, opts.chance);
@@ -76,4 +76,4 @@ function obscure(str, map, chars) {
     });
 }
 
-export scramble;
+export default scrambler;
