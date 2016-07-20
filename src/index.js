@@ -1,3 +1,10 @@
+import {
+    mapString,
+    extend,
+    maybe,
+    sample
+} from './utils';
+
 const defaults = {
     characters: [
         '\u2588',
@@ -69,29 +76,4 @@ function obscure(str, map, chars) {
     });
 }
 
-// Extend one object with another.
-function extend(obj, ext) {
-    for (let key in ext) {
-        if (ext.hasOwnProperty(key)) {
-            obj[key] = ext[key];
-        }
-    }
-    return obj;
-}
-
-// Transform each character in a string.
-function mapString(str, fn) {
-    return str.split('').map(fn).join('');
-}
-
-// Return random boolean with probability.
-function maybe(prob = 0.5) {
-    return Math.random() - prob < 0;
-}
-
-// Get a random item from an array.
-function sample(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
-
-module.exports = scramble;
+export scramble;
