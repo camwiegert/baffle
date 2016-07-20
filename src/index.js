@@ -30,6 +30,11 @@ function scramble(el, options) {
     interval = setInterval(run, opts.speed);
 
     return {
+        start() {
+            clearInterval(interval);
+            interval = setInterval(run, opts.speed);
+            return this;
+        },
         stop() {
             clearInterval(interval);
             el.textContent = init;
