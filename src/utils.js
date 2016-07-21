@@ -29,3 +29,11 @@ export function each(arr, fn) {
         fn(arr[i], i);
     }
 }
+
+// Get an array of the indices of truthy values in arr.
+export function getTruthyIndices(arr) {
+    return arr.map((item, index) => {
+        if (!item) return false;
+        return index;
+    }).filter(i => i !== false);
+}
