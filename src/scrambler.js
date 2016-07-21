@@ -45,6 +45,13 @@ class Scrambler {
         this.elements.forEach(el => el.node.textContent = el.text);
     }
 
+    text(str) {
+        this.elements.forEach(el => {
+            el.text = str;
+            el.map = getInitBitmap(str);
+        });
+    }
+
 }
 
 /**
