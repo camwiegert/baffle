@@ -69,6 +69,7 @@ function scrambler(el, options) {
 /**
 * Take a string and return an array where the corresponding index
 * is either 0 or 1.
+* 'hello' => [1,1,1,1,1]
 */
 function getInitBitmap(str, prob = 1) {
     return str
@@ -78,6 +79,7 @@ function getInitBitmap(str, prob = 1) {
 
 /**
 * Take a bitmap, leave 0s untouched and flips 1s with prob chance.
+* [1,0,1] => [0,0,1]
 */
 function decayBitmap(bitmap, prob = 0.15) {
     return bitmap.map(bit => {
@@ -89,6 +91,7 @@ function decayBitmap(bitmap, prob = 0.15) {
 /**
 * Map characters in a string to random characters from chars if the
 * corresponding index in map is truthy.
+* ('hello', [1,0,1,0,1], ['*']) => '*e*l*'
 */
 function obscure(str, map, chars) {
     return mapString(str, (char, index) => {
