@@ -27,43 +27,13 @@ const defaults = {
     chance: 1
 };
 
-function scrambler(el, options) {
-    let opts = extend(defaults, options),
-        text = el.textContent,
-        map  = getInitBitmap(text, opts.chance);
+class Scrambler {
 
-    const run = () => el.textContent = obscure(text, map, opts.characters);
-    let interval = setInterval(run, opts.speed);
+    constructor(selector, opts) {
+        this.elements = [...document.querySelectorAll(selector)];
+        this.options  = extend(Object.create(defaults), opts);
+    }
 
-    return {
-        start() {
-            clearInterval(interval);
-            interval = setInterval(run, opts.speed);
-            return this;
-        },
-        stop() {
-            clearInterval(interval);
-            el.textContent = text;
-            return this;
-        },
-        text(str) {
-            map = getInitBitmap(str, opts.chance);
-            text = str;
-            return this;
-        },
-        reveal(prob) {
-            clearInterval(interval);
-            interval = setInterval(() => {
-                map = decayBitmap(map, prob);
-                run();
-                if (map.every(bit => bit === 0)) {
-                    clearInterval(interval);
-                    map = getInitBitmap(text, opts.chance);
-                }
-            }, opts.speed);
-            return this;
-        }
-    };
 }
 
 /**
@@ -102,4 +72,6 @@ function obscure(str, map, chars) {
     });
 }
 
-export default scrambler;
+export default function(selector, options) {
+    return new Scrambler(selector, options);
+};
