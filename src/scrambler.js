@@ -23,8 +23,7 @@ const defaults = {
         '\u003e',
         '\u002f'
     ],
-    speed: 50,
-    chance: 1
+    speed: 50
 };
 
 class Scrambler {
