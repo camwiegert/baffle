@@ -75,6 +75,17 @@ class Scrambler {
         return this;
     }
 
+    reveal(duration) {
+        clearInterval(this.interval);
+        this.interval = setInterval(() => {
+            each(this.elements, el => {
+                el.map = decayBitmap(el.map, 1);
+                el.transform(this.options.characters);
+                if (el.map.every(bit => !bit)) this.stop();
+            });
+        }, this.options.speed);
+    }
+
 }
 
 /**
