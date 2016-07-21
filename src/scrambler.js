@@ -42,12 +42,14 @@ class Scrambler {
             this.elements.forEach(el => el.transform(this.options.characters));
         }, this.options.speed);
         this.state.running = true;
+        return this;
     }
 
     stop() {
         clearInterval(this.interval);
         this.elements.forEach(el => el.reset());
         this.state.running = false;
+        return this;
     }
 
     text(str) {
@@ -58,6 +60,7 @@ class Scrambler {
         if (!this.state.running) {
             this.elements.forEach(el => el.reset());
         }
+        return this;
     }
 
 }
