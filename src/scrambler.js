@@ -80,6 +80,7 @@ function decayBitmap(bitmap, prob = 0.15) {
 */
 function obscure(str, map, chars) {
     return mapString(str, (char, index) => {
+        if (char === ' ') return char;
         return map[index] ?
             sample(chars) :
             char;
