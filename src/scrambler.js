@@ -1,6 +1,7 @@
 import {
     mapString,
     extend,
+    each,
     maybe,
     sample
 } from './utils';
@@ -48,7 +49,7 @@ class Scrambler {
     start() {
         clearInterval(this.interval);
         this.interval = setInterval(() => {
-            this.elements.forEach(el => el.transform(this.options.characters));
+            each(this.elements, el => el.transform(this.options.characters));
         }, this.options.speed);
         this.state.running = true;
         return this;
@@ -56,7 +57,7 @@ class Scrambler {
 
     stop() {
         clearInterval(this.interval);
-        this.elements.forEach(el => el.reset());
+        each(this.elements, el => el.reset());
         this.state.running = false;
         return this;
     }
@@ -68,7 +69,7 @@ class Scrambler {
             el.map = getInitBitmap(str);
         });
         if (!this.state.running) {
-            this.elements.forEach(el => el.reset());
+            each(this.elements, el => el.reset());
         }
         return this;
     }

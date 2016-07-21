@@ -22,3 +22,10 @@ export function maybe(prob = 0.5) {
 export function sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
+
+// Operate on each item in an array.
+export function each(arr, fn) {
+    for (let i=0, l=arr.length; i<l; i++) {
+        fn(arr[i], i);
+    }
+}
