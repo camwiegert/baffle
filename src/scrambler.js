@@ -1,4 +1,5 @@
 import {
+    getTruthyIndices,
     mapString,
     extend,
     each,
@@ -106,14 +107,17 @@ function getInitBitmap(str, prob = 1) {
 }
 
 /**
-* Take a bitmap, leave 0s untouched and flips 1s with prob chance.
-* [1,0,1] => [0,0,1]
+* Take a bitmap, leave 0s untouched and flip count 1s, randomly chosen.
+* ([1,0,1], 1) => [1,0,0]
 */
-function decayBitmap(bitmap, prob = 0.15) {
-    return bitmap.map(bit => {
-        if (!bit) return bit;
-        return maybe(prob) ? 0 : 1;
-    });
+function decayBitmap(bitmap, count) {
+    let next = bitmap.slice();
+    while (count--) {
+        let on = getTruthyIndices(next);
+        if (!on.length) return next;
+        next[sample(on)] = 0;
+    }
+    return next;
 }
 
 /**
