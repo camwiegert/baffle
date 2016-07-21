@@ -46,7 +46,7 @@ class Scrambler {
 
     stop() {
         clearInterval(this.interval);
-        this.elements.forEach(el => el.node.textContent = el.text);
+        this.elements.forEach(el => el.reset());
         this.state.running = false;
     }
 
@@ -56,7 +56,7 @@ class Scrambler {
             el.map = getInitBitmap(str);
         });
         if (!this.state.running) {
-            this.elements.forEach(el => el.node.textContent = el.text);
+            this.elements.forEach(el => el.reset());
         }
     }
 
@@ -70,6 +70,9 @@ function toScramblerElement(el) {
         node: el,
         text: el.textContent,
         map: getInitBitmap(el.textContent),
+        reset() {
+            this.node.textContent = this.text;
+        },
         transform(characters) {
             let next = obscure(this.text, this.map, characters);
             this.node.textContent = next;
