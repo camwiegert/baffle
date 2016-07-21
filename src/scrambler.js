@@ -37,6 +37,15 @@ class Scrambler {
         };
     }
 
+    set(opts) {
+        this.options = extend(this.options, opts);
+        if (this.state.running) {
+            clearInterval(this.interval);
+            this.start();
+        }
+        return this;
+    }
+
     start() {
         this.interval = setInterval(() => {
             this.elements.forEach(el => el.transform(this.options.characters));
