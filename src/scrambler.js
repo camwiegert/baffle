@@ -30,10 +30,36 @@ const defaults = {
 class Scrambler {
 
     constructor(selector, opts) {
-        this.elements = [...document.querySelectorAll(selector)];
         this.options  = extend(Object.create(defaults), opts);
+        this.elements = [...document.querySelectorAll(selector)].map(toScramblerElement);
     }
 
+    start() {
+        this.interval = setInterval(() => {
+            this.elements.forEach(el => el.transform(this.options.characters));
+        }, this.options.speed);
+    }
+
+    stop() {
+        clearInterval(this.interval);
+        this.elements.forEach(el => el.node.textContent = el.text);
+    }
+
+}
+
+/**
+* Convert a DOM node to a more useful form for transformation.
+*/
+function toScramblerElement(el) {
+    return {
+        node: el,
+        text: el.textContent,
+        map: getInitBitmap(el.textContent),
+        transform(characters) {
+            let next = obscure(this.text, this.map, characters);
+            this.node.textContent = next;
+        }
+    };
 }
 
 /**
