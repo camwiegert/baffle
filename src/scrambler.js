@@ -46,6 +46,7 @@ class Scrambler {
     }
 
     start() {
+        clearInterval(this.interval);
         this.interval = setInterval(() => {
             this.elements.forEach(el => el.transform(this.options.characters));
         }, this.options.speed);
