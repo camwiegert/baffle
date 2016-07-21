@@ -65,6 +65,16 @@ function getInitBitmap(str, prob) {
 }
 
 /**
+* Take a bitmap, leave 0s untouched and flips 1s with prob chance.
+*/
+function decayBitmap(bitmap, prob = 0.15) {
+    return bitmap.map(bit => {
+        if (!bit) return bit;
+        return maybe(prob) ? 0 : 1;
+    });
+}
+
+/**
 * Map characters in a string to random characters from chars if the
 * corresponding index in map is truthy.
 */
