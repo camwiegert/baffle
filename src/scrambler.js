@@ -32,17 +32,22 @@ class Scrambler {
     constructor(selector, opts) {
         this.options  = extend(Object.create(defaults), opts);
         this.elements = [...document.querySelectorAll(selector)].map(toScramblerElement);
+        this.state = {
+            running: false
+        };
     }
 
     start() {
         this.interval = setInterval(() => {
             this.elements.forEach(el => el.transform(this.options.characters));
         }, this.options.speed);
+        this.state.running = true;
     }
 
     stop() {
         clearInterval(this.interval);
         this.elements.forEach(el => el.node.textContent = el.text);
+        this.state.running = false;
     }
 
     text(str) {
@@ -50,6 +55,9 @@ class Scrambler {
             el.text = str;
             el.map = getInitBitmap(str);
         });
+        if (!this.state.running) {
+            this.elements.forEach(el => el.node.textContent = el.text);
+        }
     }
 
 }
