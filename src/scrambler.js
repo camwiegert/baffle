@@ -53,6 +53,7 @@ class Scrambler {
     }
 
     text(str) {
+        if (typeof str !== 'string') return this;
         this.elements.forEach(el => {
             el.text = str;
             el.map = getInitBitmap(str);
