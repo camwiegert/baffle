@@ -50,6 +50,18 @@ function scrambler(el, options) {
             map = getInitBitmap(str, opts.chance);
             text = str;
             return this;
+        },
+        reveal(prob) {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                map = decayBitmap(map, prob);
+                run();
+                if (map.every(bit => bit === 0)) {
+                    clearInterval(interval);
+                    map = getInitBitmap(text, opts.chance);
+                }
+            }, opts.speed);
+            return this;
         }
     };
 }
