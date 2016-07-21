@@ -58,7 +58,7 @@ function scrambler(el, options) {
 * Take a string and return an array where the corresponding index
 * is either 0 or 1.
 */
-function getInitBitmap(str, prob) {
+function getInitBitmap(str, prob = 1) {
     return str
         .split('')
         .map(() => maybe(prob) ? 1 : 0);
