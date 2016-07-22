@@ -82,7 +82,7 @@ class Scrambler {
         let cycles   = duration / this.options.speed;
         clearInterval(this.interval);
         this.interval = setInterval(() => {
-            let elements = this.elements.filter(isObscured);
+            let elements = this.elements.filter(isObfuscated);
             if (!elements) return this.stop();
             each(elements, el => {
                 let pace = Math.ceil(el.text.length / cycles);
@@ -107,7 +107,7 @@ function toScramblerElement(el) {
             this.node.textContent = this.text;
         },
         transform(characters) {
-            let next = obscure(this.text, this.map, characters);
+            let next = obfuscate(this.text, this.map, characters);
             this.node.textContent = next;
         }
     };
@@ -143,7 +143,7 @@ function decayBitmap(bitmap, count) {
 * corresponding index in map is truthy.
 * ('hello', [1,0,1,0,1], ['*']) => '*e*l*'
 */
-function obscure(str, map, chars) {
+function obfuscate(str, map, chars) {
     return mapString(str, (char, index) => {
         if (char === ' ') return char;
         return map[index] ?
@@ -153,9 +153,9 @@ function obscure(str, map, chars) {
 }
 
 /**
-* Check if an element is obscured.
+* Check if an element is obfuscated.
 */
-function isObscured(el) {
+function isObfuscated(el) {
     let map  = el.map.every(bit => !bit),
     text = el.node.textContent === el.text;
     return !map || !text;
