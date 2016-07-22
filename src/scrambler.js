@@ -58,7 +58,10 @@ class Scrambler {
 
     stop() {
         clearInterval(this.interval);
-        each(this.elements, el => el.reset());
+        each(this.elements, el => {
+            el.reset();
+            el.map = getInitBitmap(el.text);
+        });
         this.state.running = false;
         return this;
     }
