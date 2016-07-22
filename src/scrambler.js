@@ -38,6 +38,10 @@ class Scrambler {
         };
     }
 
+    /**
+    * Set options after instantiation. Restarts the interval if
+    * currently running.
+    */
     set(opts) {
         this.options = extend(this.options, opts);
         if (this.state.running) {
@@ -47,6 +51,10 @@ class Scrambler {
         return this;
     }
 
+    /**
+    * Start the scrambler. Calls each element's transform method
+    * every this.options.speed milliseconds.
+    */
     start() {
         clearInterval(this.interval);
         this.interval = setInterval(() => {
@@ -56,6 +64,10 @@ class Scrambler {
         return this;
     }
 
+    /**
+    * Stop the scrambler. Clears the interval and calls each
+    * element's reset method.
+    */
     stop() {
         clearInterval(this.interval);
         each(this.elements, el => el.reset());
@@ -63,6 +75,11 @@ class Scrambler {
         return this;
     }
 
+    /**
+    * Set the text and get a new bitmap for each element to
+    * be used in the next cycle. If the scrambler isn't
+    * running, just reset each element to catch the new text.
+    */
     text(str) {
         if (typeof str !== 'string') return this;
         this.elements.forEach(el => {
@@ -75,6 +92,11 @@ class Scrambler {
         return this;
     }
 
+    /**
+    * Start a new interval, decaying each bitmap enough each
+    * cycle to reveal all elements within duration milliseconds.
+    * Once all elements are revealed, call stop.
+    */
     reveal(duration = 1500) {
         let cycles   = duration / this.options.speed;
         clearInterval(this.interval);
