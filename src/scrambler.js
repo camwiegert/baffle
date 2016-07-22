@@ -97,6 +97,7 @@ class Scrambler {
 
 /**
 * Convert a DOM node to a more useful form for transformation.
+* Store a reference to the original element add some shorthand.
 */
 function toScramblerElement(el) {
     return {
@@ -154,6 +155,7 @@ function obfuscate(str, map, chars) {
 
 /**
 * Check if an element is obfuscated.
+* { map: [0,1,0], ... } => false
 */
 function isObfuscated(el) {
     let map  = el.map.every(bit => !bit),
@@ -161,6 +163,10 @@ function isObfuscated(el) {
     return !map || !text;
 }
 
+/**
+* Export a factory function so we don't need 'new'. Simply call
+* scrambler('.selector', [options])...
+*/
 export default function(selector, options) {
     return new Scrambler(selector, options);
 };
