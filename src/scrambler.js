@@ -58,10 +58,7 @@ class Scrambler {
 
     stop() {
         clearInterval(this.interval);
-        each(this.elements, el => {
-            el.reset();
-            el.map = getInitBitmap(el.text);
-        });
+        each(this.elements, el => el.reset());
         this.state.running = false;
         return this;
     }
@@ -106,6 +103,7 @@ function toScramblerElement(el) {
         map: getInitBitmap(el.textContent),
         reset() {
             this.node.textContent = this.text;
+            this.map = getInitBitmap(this.text);
         },
         transform(characters) {
             let next = obfuscate(this.text, this.map, characters);
