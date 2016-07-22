@@ -83,7 +83,7 @@ class Scrambler {
         clearInterval(this.interval);
         this.interval = setInterval(() => {
             let elements = this.elements.filter(isObfuscated);
-            if (!elements) return this.stop();
+            if (!elements.length) return this.stop();
             each(elements, el => {
                 let pace = Math.ceil(el.text.length / cycles);
                 el.map = decayBitmap(el.map, pace);
