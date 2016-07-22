@@ -79,15 +79,19 @@ class Scrambler {
     }
 
     reveal(duration = 1500) {
-        let cycles = duration / this.options.speed;
+        let cycles = duration / this.options.speed, revealed = [];
         clearInterval(this.interval);
         this.interval = setInterval(() => {
             each(this.elements, el => {
+                if (revealed.indexOf(el) > -1) return false;
                 let pace = Math.ceil(el.text.length / cycles);
                 el.map = decayBitmap(el.map, pace);
                 el.transform(this.options.characters);
-                if (el.map.every(bit => !bit)) this.stop();
+                if (el.map.every(bit => !bit)) revealed.push(el);
             });
+            if (revealed.length === this.elements.length) {
+                return this.stop();
+            }
         }, this.options.speed);
         return this;
     }
