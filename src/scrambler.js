@@ -155,6 +155,15 @@ function obscure(str, map, chars) {
     });
 }
 
+/**
+* Check if an element is obscured.
+*/
+function isObscured(el) {
+    let map  = el.map.every(bit => !bit),
+    text = el.node.textContent === el.text;
+    return !map || !text;
+}
+
 export default function(selector, options) {
     return new Scrambler(selector, options);
 };
