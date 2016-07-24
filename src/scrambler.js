@@ -184,4 +184,4 @@ function isObfuscated(el) {
 */
 export default function(selector, options) {
     return new Scrambler(selector, options);
-};
+}
