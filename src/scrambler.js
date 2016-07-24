@@ -98,12 +98,22 @@ class Scrambler {
     * Once all elements are revealed, call stop.
     */
     reveal(duration = 1500) {
+
+        // Find how many cycles fit in duration.
         let cycles   = duration / this.options.speed;
+
+        // Stop interval, transform each element once, and start a new interval.
         clearInterval(this.interval);
         each(this.elements, el => el.transform(this.options.characters));
         this.interval = setInterval(() => {
+
+            // Only operate on obfuscated elements.
             let elements = this.elements.filter(isObfuscated);
+
+            // If there are none, stop.
             if (!elements.length) return this.stop();
+
+            // Decay each bitmap by pace, and transform.
             each(elements, el => {
                 let pace = Math.ceil(el.text.length / cycles);
                 el.map = decayBitmap(el.map, pace);
