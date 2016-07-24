@@ -8,23 +8,7 @@ import {
 } from './utils';
 
 const defaults = {
-    characters: [
-        '\u2588',
-        '\u2593',
-        '\u2592',
-        '\u2591',
-        '\u2588',
-        '\u2593',
-        '\u2592',
-        '\u2591',
-        '\u2588',
-        '\u2593',
-        '\u2592',
-        '\u2591',
-        '\u003c',
-        '\u003e',
-        '\u002f'
-    ],
+    characters: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?'.split(''),
     speed: 50
 };
 
