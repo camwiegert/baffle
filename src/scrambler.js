@@ -100,6 +100,7 @@ class Scrambler {
     reveal(duration = 1500) {
         let cycles   = duration / this.options.speed;
         clearInterval(this.interval);
+        each(this.elements, el => el.transform(this.options.characters));
         this.interval = setInterval(() => {
             let elements = this.elements.filter(isObfuscated);
             if (!elements.length) return this.stop();
