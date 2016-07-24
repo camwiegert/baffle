@@ -81,7 +81,7 @@ class Scrambler {
     * cycle to reveal all elements within duration milliseconds.
     * Once all elements are revealed, call stop.
     */
-    reveal(duration = 1000) {
+    reveal(duration = 1500) {
 
         // Find how many cycles fit in duration.
         let cycles   = duration / this.options.speed;
