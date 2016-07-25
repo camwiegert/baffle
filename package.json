@@ -2,6 +2,7 @@
   "name": "baffle",
   "version": "0.1.0",
   "description": "A tiny, dependency-free utility for obfuscating and revealing text.",
+  "main": "dist/baffle.min.js",
   "scripts": {
     "start": "webpack -wp",
     "build": "webpack -p",
