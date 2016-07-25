@@ -12,11 +12,11 @@ const defaults = {
     speed: 50
 };
 
-class Scrambler {
+class Baffle {
 
     constructor(selector, opts) {
         this.options  = extend(Object.create(defaults), opts);
-        this.elements = [...document.querySelectorAll(selector)].map(toScramblerElement);
+        this.elements = [...document.querySelectorAll(selector)].map(toBaffleElement);
         this.state = {
             running: false
         };
@@ -113,7 +113,7 @@ class Scrambler {
 * Convert a DOM node to a more useful form for transformation.
 * Store a reference to the original element add some shorthand.
 */
-function toScramblerElement(el) {
+function toBaffleElement(el) {
     return {
         node: el,
         text: el.textContent,
@@ -183,5 +183,5 @@ function isObfuscated(el) {
 * scrambler('.selector', [options])...
 */
 export default function(selector, options) {
-    return new Scrambler(selector, options);
+    return new Baffle(selector, options);
 }

@@ -1,7 +1,7 @@
 {
-  "name": "scrambler",
+  "name": "baffle",
   "version": "0.1.0",
-  "description": "That 90s cable look, but for text.",
+  "description": "A tiny, dependency-free utility for obfuscating and revealing text.",
   "scripts": {
     "start": "webpack -wp",
     "build": "webpack -p",
@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/camwiegert/scrambler.git"
+    "url": "git+https://github.com/camwiegert/baffle.git"
   },
-  "homepage": "https://camwiegert.github.io/scrambler",
+  "homepage": "https://camwiegert.github.io/baffle",
   "babel": {
       "presets": [
           "es2015"

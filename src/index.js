@@ -1,2 +1,2 @@
-import scrambler from './scrambler';
-module.exports = scrambler;
+import baffle from './baffle';
+module.exports = baffle;
