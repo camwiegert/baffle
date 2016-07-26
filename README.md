@@ -2,6 +2,14 @@
 
 baffle is a tiny (~1.6kb) javascript utility **for obfuscating and revealing text** in DOM elements.
 
+```javascript
+// Basic usage
+let b = baffle('.someSelector');
+someAsyncFunction(result => {
+    b.text(result.text).reveal();
+});
+```
+
 ## Getting Started
 
 #### Step 0: Install
@@ -40,6 +48,23 @@ Once you have a baffle instance, you have access to all of the baffle methods. U
 ```javascript
 // Start obfuscating...
 b.start();
-// ...and eventually reveal.
+
+// Or stop obfuscating...
+b.stop();
+
+// You can set options after intializing...
+b.set({...options});
+
+// Or change the text at any time...
+b.text('Hi mom!');
+
+// Eventually, you'll want to reveal your text...
 b.reveal();
+
+// And they're all chainable...
+b.stop()
+    .start()
+    .set({ speed: 100 })
+    .text('Hi dad!')
+    .reveal();
 ```
