@@ -1,6 +1,6 @@
 {
   "name": "baffle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A tiny, dependency-free utility for obfuscating and revealing text.",
   "main": "dist/baffle.min.js",
   "scripts": {
@@ -14,20 +14,20 @@
   },
   "homepage": "https://camwiegert.github.io/baffle",
   "babel": {
-      "presets": [
-          "es2015"
-      ]
+    "presets": [
+      "es2015"
+    ]
   },
   "eslintConfig": {
-      "extends": "eslint:recommended",
-      "env": {
-          "browser": true,
-          "node": true
-      },
-      "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-      }
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
   },
   "author": "Cam Wiegert <cam@camwiegert.com>",
   "license": "MIT",
