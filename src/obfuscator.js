@@ -24,7 +24,7 @@ class Obfuscator {
     * Set the bitmap to an array of 1s, with length equal to this.value.
     */
     init() {
-        this.bitmap = this.value.split('').map(char => 1);
+        this.bitmap = this.value.split('').map(() => 1);
         return this;
     }
 
@@ -48,7 +48,7 @@ class Obfuscator {
             * a randomly chosen character from characters, else
             * return this character.
             */
-            return !!this.bitmap[index] ?
+            return this.bitmap[index] ?
                 sample(characters) :
                 char;
         });
