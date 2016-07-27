@@ -6,7 +6,7 @@ baffle is a tiny (~1.6kb) javascript utility **for obfuscating and revealing tex
 
 ```javascript
 // Basic usage
-let b = baffle('.someSelector');
+let b = baffle('.someSelector').start();
 someAsyncFunction(result => {
     b.text(result.text).reveal();
 });
