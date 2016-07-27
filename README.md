@@ -1,5 +1,7 @@
 # baffle.js
 
+> <img src="https://camwiegert.github.io/baffle/assets/images/baffle.js.png" width="500"/>
+
 baffle is a tiny (~1.6kb) javascript utility **for obfuscating and revealing text** in DOM elements.
 
 ```javascript
