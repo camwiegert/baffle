@@ -1,18 +1,18 @@
-/**
-* - Obfsucator -
-*
-* This modules exports a class which provides low-level
-* functionality for obfuscating and revealing a string.
-*
-*/
-
 import {
     getTruthyIndices,
     mapString,
     sample
 } from './utils';
 
-
+/**
+* - Obfuscator -
+*
+* Provides a low-level interface to obfuscate and reveal
+* a string based on its corresponding bitmap.
+*
+* ('hello', [0,1,0,1,0], '*') => '*e*l*o'
+*
+*/
 class Obfuscator {
 
     constructor(str) {
@@ -78,5 +78,27 @@ class Obfuscator {
 
 }
 
+/**
+* - ObfuscatorElement -
+*
+* Extends Obfuscator to be able to wrap a DOM element and
+* update its textContent.
+*
+* (<p>Hi Mom!</p>).write('*~•+') => <p>•~ *+~•</p>
+*
+*/
+class ObfuscatorElement extends Obfuscator {
+
+    constructor(element) {
+        super(element.textContent);
+        this.element = element;
+    }
+
+    write(chars) {
+        this.element.textContent = this.render(chars);
+    }
+
+}
+
 // Export a factory function so we don't need 'new'.
-export default (str) => new Obfuscator(str);
+export default (element) => new ObfuscatorElement(element);
