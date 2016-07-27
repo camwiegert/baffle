@@ -32,3 +32,14 @@ export function getTruthyIndices(arr) {
         return index;
     }).filter(i => i !== false);
 }
+
+// Get an array of elements with a selector, NodeList, Node, or HTMLCollection.
+export function getElements(obj) {
+    if (typeof obj === 'string')
+        return [...document.querySelectorAll(obj)];
+    if ([NodeList, HTMLCollection].some(collection => obj instanceof collection))
+        return [...obj];
+    if (obj.nodeType)
+        return [obj];
+    return obj;
+}
