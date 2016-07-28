@@ -33,7 +33,6 @@ class Baffle {
 
     stop() {
         clearInterval(this.interval);
-        each(this.elements, el => el.write());
         this.running = false;
         return this;
     }
