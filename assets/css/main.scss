@@ -42,7 +42,22 @@ h5 {
     margin: 0 0 1em 0;
 }
 
+.header {
+    margin-bottom: 6rem;
+}
+
 .headline {
     font-weight: 400;
     font-size: 4rem;
+}
+
+.demo-holder {
+    display: inline-block;
+    background-color: #f5f5f5;
+    color: #666666;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+    cursor: default;
+    -webkit-user-select: none;
+            user-select: none;
 }

@@ -22,4 +22,15 @@
         characters: gibberish
     }).start().reveal(1500, 2000);
 
+    var demoHolder = document.querySelector('.demo-holder'),
+        demo       = baffle(document.querySelector('.demo'));
+
+    demoHolder.addEventListener('mouseenter', function() {
+        demo.start();
+    });
+
+    demoHolder.addEventListener('mouseleave', function() {
+        demo.reveal(750);
+    });
+
 })();
