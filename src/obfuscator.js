@@ -96,6 +96,7 @@ class ObfuscatorElement extends Obfuscator {
 
     write(chars) {
         this.element.textContent = this.render(chars);
+        return this;
     }
 
 }
