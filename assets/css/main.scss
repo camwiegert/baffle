@@ -42,28 +42,27 @@ h5 {
     margin: 0 0 1em 0;
 }
 
+.btn {
+    display: inline-block;
+    color: $color-white;
+    background-color: $color-black;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-weight: 700;
+}
+
 .header {
     margin-bottom: 6rem;
 }
 
 .headline {
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 .lead {
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 400;
     max-width: 40em;
-}
-
-.demo-holder {
-    display: inline-block;
-    background-color: #f5f5f5;
-    color: #666666;
-    padding: 2rem 3rem;
-    border-radius: 5px;
-    cursor: default;
-    -webkit-user-select: none;
-            user-select: none;
+    margin-bottom: 4rem;
 }

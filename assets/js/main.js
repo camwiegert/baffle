@@ -22,11 +22,4 @@
         characters: gibberish
     }).start().reveal(1500, 3000);
 
-    var demoHolder = document.querySelector('.demo-holder'),
-        demo       = baffle(document.querySelector('.demo'));
-
-    demoHolder.addEventListener('click', function() {
-        demo.start().reveal(1000, 1000);
-    });
-
 })();
