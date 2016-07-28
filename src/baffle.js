@@ -43,6 +43,13 @@ class Baffle {
         return this;
     }
 
+    text(fn) {
+        each(this.elements, el => {
+            el.text(fn(el.value));
+        });
+        return this;
+    }
+
     reveal(duration = 0, delay = 0) {
         // Number of cycles in duration
         let cycles = duration / this.options.speed || 1;
