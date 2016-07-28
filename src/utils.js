@@ -43,11 +43,3 @@ export function getElements(obj) {
         return [obj];
     return obj;
 }
-
-// Remove duplicates from an array.
-export function dedupe(arr) {
-    let seen = {};
-    return arr.filter(item => {
-        return seen.hasOwnProperty(item) ? false : seen[item] = true;
-    });
-}
