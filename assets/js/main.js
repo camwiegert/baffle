@@ -30,7 +30,7 @@
     });
 
     demoHolder.addEventListener('mouseleave', function() {
-        demo.reveal(750);
+        demo.reveal(1000);
     });
 
 })();
