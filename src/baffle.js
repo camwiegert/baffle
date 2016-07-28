@@ -19,8 +19,8 @@ class Baffle {
         this.running  = false;
     }
 
-    once(chars = this.options.characters) {
-        each(this.elements, el => el.write(chars));
+    once() {
+        each(this.elements, el => el.write(this.options.characters));
         return this;
     }
 
