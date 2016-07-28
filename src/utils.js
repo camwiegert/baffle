@@ -13,11 +13,6 @@ export function mapString(str, fn) {
     return str.split('').map(fn).join('');
 }
 
-// Return random boolean with probability.
-export function maybe(prob = 0.5) {
-    return Math.random() - prob < 0;
-}
-
 // Get a random item from an array.
 export function sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -36,4 +31,15 @@ export function getTruthyIndices(arr) {
         if (!item) return false;
         return index;
     }).filter(i => i !== false);
+}
+
+// Get an array of elements with a selector, NodeList, Node, or HTMLCollection.
+export function getElements(obj) {
+    if (typeof obj === 'string')
+        return [...document.querySelectorAll(obj)];
+    if ([NodeList, HTMLCollection].some(collection => obj instanceof collection))
+        return [...obj];
+    if (obj.nodeType)
+        return [obj];
+    return obj;
 }
