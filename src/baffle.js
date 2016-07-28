@@ -26,6 +26,7 @@ class Baffle {
 
     start() {
         clearInterval(this.interval);
+        each(this.elements, el => el.init());
         this.interval = setInterval(() => this.once(), this.options.speed);
         this.running = true;
         return this;
