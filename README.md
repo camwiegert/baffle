@@ -1,14 +1,15 @@
 # baffle.js
 
-> <img src="https://camwiegert.github.io/baffle/assets/images/baffle.js.png" width="500"/>
-
-baffle is a tiny (~1.6kb) javascript utility **for obfuscating and revealing text** in DOM elements.
+baffle is a tiny (~1.9kb) javascript utility **for obfuscating and revealing text** in DOM elements.
 
 ```javascript
-// Basic usage
+// Select elements and start.
 let b = baffle('.someSelector').start();
+
+// Do something else.
 someAsyncFunction(result => {
-    b.text(result.text).reveal();
+    // Change the text and reveal over 1500ms.
+    b.text(text => result.text).reveal(1500);
 });
 ```
 
@@ -58,15 +59,14 @@ b.stop();
 b.set({...options});
 
 // Or change the text at any time...
-b.text('Hi mom!');
+b.text(text => 'Hi Mom!');
 
 // Eventually, you'll want to reveal your text...
-b.reveal();
+b.reveal(1000);
 
 // And they're all chainable...
-b.stop()
-    .start()
+b.start()
     .set({ speed: 100 })
-    .text('Hi dad!')
-    .reveal();
+    .text(text => 'Hi dad!')
+    .reveal(1000);
 ```
