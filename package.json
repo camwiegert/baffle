@@ -1,6 +1,6 @@
 {
   "name": "baffle",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A tiny, dependency-free utility for obfuscating and revealing text.",
   "main": "dist/baffle.min.js",
   "scripts": {
@@ -16,9 +16,14 @@
   "babel": {
     "presets": [
       "es2015"
-      ],
+    ],
     "plugins": [
-      ["transform-es2015-classes", { "loose": true }]
+      [
+        "transform-es2015-classes",
+        {
+          "loose": true
+        }
+      ]
     ]
   },
   "eslintConfig": {
