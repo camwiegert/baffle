@@ -39,6 +39,19 @@ ol {
     list-style: none;
 }
 
+.docList-item {
+    margin-bottom: 2em;
+}
+
+.docList-header {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+.docList-info {
+    padding-left: 2em;
+}
+
 .codeBlock {
     background-color: $color-black;
     color: $color-white;
@@ -55,6 +68,10 @@ code {
     line-height: 1.85;
     background-color: #e7d9ff;
     color: #310680;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 .hljs {

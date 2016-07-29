@@ -92,6 +92,46 @@ b.set({
 </code></pre>
         </section>
 
+        <section id="options">
+            <div class="wrap">
+                <h3 class="sectionHeader"><a href="#options">Options</a></h3>
+                <p>An options object can be passed to baffle when instantiated or any time afterward using the <code>set()</code> method.</p>
+            </div>
+<pre class="codeBlock"><code class="javascript">// On instantiation
+baffle('.someSelector', {
+    characters: 'supercalifragilisticexpialidocious',
+    speed: 150
+});
+
+// After instantiation
+baffle('.someSelector')
+    .start()
+    .set({
+        characters: 'supercalifragilisticexpialidocious',
+        speed: 150
+    });
+</code></pre>
+            <div class="wrap">
+                <h4>Available Options</h4>
+                <ul class="docList">
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>options.characters</code></h5>
+                        <div class="docList-info">
+                            <p>These are the characters that baffle uses to obfuscate your text. You can use a string or an array of characters.</p>
+                            <p class="nowrap"><strong>Default:</strong> <code>'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&amp;*()-+=[]{}|;:,./&lt;&gt;?'</code></p>
+                        </div>
+                    </li>
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>options.speed</code></h5>
+                        <div class="docList-info">
+                            <p>This is the frequency (in milliseconds) at which baffle updates your text when running.</p>
+                            <p class="nowrap"><strong>Default:</strong> <code>50</code></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <section id="support">
             <div class="wrap">
                 <h3 class="sectionHeader"><a href="#support">Browser Support</a></h3>
