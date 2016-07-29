@@ -92,6 +92,45 @@ b.set({
 </code></pre>
         </section>
 
+        <section id="methods">
+            <div class="wrap">
+                <h3 class="sectionHeader"><a href="#options">Methods</a></h3>
+                <p>A baffle instance has five methods, all of them chainable.</p>
+                <ul class="docList">
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>baffle.start()</code></h5>
+                        <div class="docList-info">
+                            <p>Starts obfuscating your elements, updating every <code>options.speed</code> milliseconds.</p>
+                        </div>
+                    </li>
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>baffle.stop()</code></h5>
+                        <div class="docList-info">
+                            <p>Stops obfuscating your elements. This won't reveal your text. It will only stop updating it. To reveal it, use <code>reveal()</code>.</p>
+                        </div>
+                    </li>
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>baffle.reveal([duration], [delay])</code></h5>
+                        <div class="docList-info">
+                            <p>Reveals your text over <code>duration</code> milliseconds (default: 50), with the option to delay by <code>delay</code> milliseconds.</p>
+                        </div>
+                    </li>
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>baffle.set([options])</code></h5>
+                        <div class="docList-info">
+                            <p>Updates instance options using the passed <code>options</code> object. You can set any number of keys, even while running.</p>
+                        </div>
+                    </li>
+                    <li class="docList-item">
+                        <h5 class="docList-header"><code>baffle.text([fn])</code></h5>
+                        <div class="docList-info">
+                            <p>Updates the text in each element of your instance using function <code>fn</code>, which receives the current text as it's only parameter. The value returned from <code>fn</code> will be used as the new text.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <section id="options">
             <div class="wrap">
                 <h3 class="sectionHeader"><a href="#options">Options</a></h3>
@@ -126,45 +165,6 @@ baffle('.someSelector')
                         <div class="docList-info">
                             <p>This is the frequency (in milliseconds) at which baffle updates your text when running.</p>
                             <p class="nowrap"><strong>Default:</strong> <code>50</code></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="options">
-            <div class="wrap">
-                <h3 class="sectionHeader"><a href="#options">Methods</a></h3>
-                <p>A baffle instance has five methods, all of them chainable.</p>
-                <ul class="docList">
-                    <li class="docList-item">
-                        <h5 class="docList-header"><code>baffle.start()</code></h5>
-                        <div class="docList-info">
-                            <p>Starts obfuscating your elements, updating every <code>options.speed</code> milliseconds.</p>
-                        </div>
-                    </li>
-                    <li class="docList-item">
-                        <h5 class="docList-header"><code>baffle.stop()</code></h5>
-                        <div class="docList-info">
-                            <p>Stops obfuscating your elements. This won't reveal your text. It will only stop updating it. To reveal it, use <code>reveal()</code>.</p>
-                        </div>
-                    </li>
-                    <li class="docList-item">
-                        <h5 class="docList-header"><code>baffle.reveal([duration], [delay])</code></h5>
-                        <div class="docList-info">
-                            <p>Reveals your text over <code>duration</code> milliseconds (default: 50), with the option to delay by <code>delay</code> milliseconds.</p>
-                        </div>
-                    </li>
-                    <li class="docList-item">
-                        <h5 class="docList-header"><code>baffle.set([options])</code></h5>
-                        <div class="docList-info">
-                            <p>Updates instance options using the passed <code>options</code> object. You can set any number of keys, even while running.</p>
-                        </div>
-                    </li>
-                    <li class="docList-item">
-                        <h5 class="docList-header"><code>baffle.text([fn])</code></h5>
-                        <div class="docList-info">
-                            <p>Updates the text in each element of your instance using function <code>fn</code>, which receives the current text as it's only parameter. The value returned from <code>fn</code> will be used as the new text.</p>
                         </div>
                     </li>
                 </ul>
