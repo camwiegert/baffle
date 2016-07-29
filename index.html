@@ -35,6 +35,63 @@ someAsyncFunction(result => {
             <pre class="codeBlock nohighlight"><code>$ npm install --save baffle</code></pre>
         </section>
 
+        <section id="basics">
+            <div class="wrap">
+                <h3 class="sectionHeader"><a href="#basics">Basic Usage</a></h3>
+                <p>With baffle installed, getting started is as simple as calling baffle with some DOM elements. Those elements can be in the form of a CSS selector, a NodeList, or a single Node. You can also pass an options object.</p>
+            </div>
+<pre class="codeBlock"><code class="javascript">// With a CSS selector
+let b = baffle('.headline');
+
+// With a Node
+let b = baffle(document.querySelector('.headline'));
+
+// With a NodeList
+let b = baffle(document.querySelectorAll('a'));
+
+// With options
+let b = baffle('.headline', {
+    characters: 'abcdefghijklmnopqrstuvwxyz',
+    speed: 75
+});
+</code></pre>
+            <div class="wrap">
+                <p>With baffle instantiated, you can start your instance with the <code>start()</code> method, stop it with <code>stop()</code>, or reveal it with <code>reveal()</code>.</p>
+            </div>
+<pre class="codeBlock"><code class="javascript">// Start obfuscating
+b.start();
+
+// Stop obfuscating
+b.stop();
+
+// Reveal your text immediately
+b.reveal();
+
+// Reveal your text over 1000ms
+b.reveal(1000);
+</code></pre>
+            <div class="wrap">
+                <p>You can also call <code>text()</code> at any time to change the underlying text of your instance or <code>set()</code> to change options.</p>
+            </div>
+<pre class="codeBlock"><code class="javascript">/**
+* Text takes a function which receives the current text
+* as its only argument use its return value as the new text.
+*/
+b.text(currentText => currentText + '!');
+
+// Set takes an options object.
+b.set({
+    speed: 100,
+    characters: '+-•~!=*'
+});
+
+// Just pass the options you want to overwrite.
+b.set({
+    speed: 40
+});
+</code></pre>
+        </section>
+
         <script src="./dist/baffle.min.js"></script>
         <script src="./assets/js/main.bundle.js"></script>
     </body>
