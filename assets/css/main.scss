@@ -16,13 +16,17 @@ body {
     background-color: $color-white;
     color: $color-black;
     font-family: $fontFamily-mono;
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-style: normal;
     font-weight: 400;
     line-height: 1.45;
     position: relative;
     -webkit-font-smoothing: antialiased;
             font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
 }
 
 pre {
@@ -38,4 +42,51 @@ code {
 
 .hljs {
     background-color: transparent;
+}
+
+.header {
+    padding: 10rem 10rem 3rem;
+}
+
+.header-headline {
+    font-size: 3.6rem;
+    font-weight: 400;
+    margin: 0 0 1em 0;
+}
+
+.header-lead {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 2em;
+    max-width: 30em;
+}
+
+.header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    .btn {
+        margin-bottom: 1em;
+        margin-right: 1em;
+    }
+}
+
+.btn {
+    border-color: $color-black;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    -webkit-transition: color 50ms ease-in-out, background-color 50ms ease-in-out;
+            transition: color 50ms ease-in-out, background-color 50ms ease-in-out;
+    &:hover {
+        background-color: $color-black;
+        color: $color-white;
+    }
+    &:active {
+        -webkit-transform: scale(0.98);
+                transform: scale(0.98);
+    }
 }

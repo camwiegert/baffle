@@ -19,3 +19,7 @@ let gibberish = [
     '\u003e',
     '\u002f'
 ];
+
+baffle('.header-headline', {
+    characters: gibberish
+}).start().reveal(1500, 2500);
