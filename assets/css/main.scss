@@ -151,3 +151,11 @@ section {
 #support ul {
     margin-bottom: 2em;
 }
+
+#basics .dom-warning {
+    opacity: 0.75;
+    margin-top: 2em;
+    .octicon {
+        font-size: 1em;
+    }
+}

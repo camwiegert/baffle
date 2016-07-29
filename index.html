@@ -39,6 +39,7 @@ someAsyncFunction(result => {
             <div class="wrap">
                 <h3 class="sectionHeader"><a href="#basics">Basic Usage</a></h3>
                 <p>With baffle installed, getting started is as simple as calling <code>baffle()</code> with some DOM elements. Those elements can be in the form of a CSS selector, a NodeList, or a single Node. You can also pass an options object.</p>
+                <p class="dom-warning"><small><i class="octicon octicon-alert"></i> baffle operates on <code>node.textContent</code>, so it will flatten any child elements. It's best used on elements without children.</small></p>
             </div>
 <pre class="codeBlock"><code class="javascript">// With a CSS selector
 let b = baffle('.headline');
@@ -180,6 +181,11 @@ baffle('.someSelector')
                 </ul>
                 <p>Please <a href="https://github.com/camwiegert/baffle/issues">report any issues</a> you come across.</p>
             </div>
+        </section>
+
+        <section class="wrap">
+                <div><strong>License</strong> MIT</div>
+                <div><strong>Made By</strong> <a href="http://camwiegert.com">Cam Wiegert</a></div>
         </section>
 
         <script src="./dist/baffle.min.js"></script>
