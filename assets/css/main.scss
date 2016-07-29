@@ -19,51 +19,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 1.45;
-    margin: 10rem;
     position: relative;
     -webkit-font-smoothing: antialiased;
             font-smoothing: antialiased;
-}
-
-p {
-    max-width: 40em;
-    margin: 0 0 1em 0;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    margin: 0 0 1em 0;
-}
-
-.btn {
-    display: inline-block;
-    color: $color-white;
-    background-color: $color-black;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    font-weight: 700;
-}
-
-.header {
-    margin-bottom: 6rem;
-}
-
-.headline {
-    font-weight: 400;
-    font-size: 4.5rem;
-}
-
-.lead {
-    font-size: 1.2em;
-    font-weight: 400;
-    max-width: 40em;
-    margin-bottom: 4rem;
 }
