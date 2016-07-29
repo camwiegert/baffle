@@ -1,0 +1,1 @@
+!function(r){function e(a){if(t[a])return t[a].exports;var n=t[a]={exports:{},id:a,loaded:!1};return r[a].call(n.exports,n,n.exports,e),n.loaded=!0,n.exports}var t={};return e.m=r,e.c=t,e.p="",e(0)}([function(r,e){"use strict";var t=["█","▓","▒","░","█","▓","▒","░","█","▓","▒","░","<",">","/"];baffle(".headline",{characters:t}).start().reveal(1500,3e3)}]);
