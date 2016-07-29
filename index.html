@@ -18,7 +18,7 @@
             </div>
         </header>
 
-<pre><code class="javascript">// Start baffle on any element(s).
+<pre class="codeBlock"><code class="javascript">// Start baffle on any element(s).
 let b = baffle('.someSelector').start();
 // Take care of some other stuff.
 someAsyncFunction(result => {
@@ -26,6 +26,14 @@ someAsyncFunction(result => {
     b.text(currentText => result.text).reveal(1500);
 });
 </code></pre>
+
+        <section id="install">
+            <div class="wrap">
+                <h3 class="sectionHeader"><a href="#install">Installation</a></h3>
+                <p>To get baffle, either <a href="#">download the latest release</a> and include it in your markup (<code>window.baffle</code>), or install with <a href="https://npmjs.com/package/baffle">NPM</a>.</p>
+            </div>
+            <pre class="codeBlock nohighlight"><code>npm install --save baffle</code></pre>
+        </section>
 
         <script src="./dist/baffle.min.js"></script>
         <script src="./assets/js/main.bundle.js"></script>

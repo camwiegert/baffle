@@ -23,3 +23,7 @@ let gibberish = [
 baffle('.header-headline', {
     characters: gibberish
 }).start().reveal(1500, 2500);
+
+baffle('.sectionHeader a')
+    .start()
+    .reveal(1500, 1500);

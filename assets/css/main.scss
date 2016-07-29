@@ -27,17 +27,29 @@ body {
 
 a {
     color: inherit;
+    text-decoration: underline;
 }
 
-pre {
+p {
+    max-width: 40em;
+}
+
+.codeBlock {
     background-color: $color-black;
     color: $color-white;
     padding: 4rem 10rem;
+    margin: 4rem 0;
+    code {
+        background-color: transparent;
+        color: inherit;
+    }
 }
 
 code {
     font-family: $fontFamily-mono;
     line-height: 1.85;
+    background-color: #e7d9ff;
+    color: #310680;
 }
 
 .hljs {
@@ -45,7 +57,7 @@ code {
 }
 
 .header {
-    padding: 10rem 10rem 3rem;
+    padding: 10rem 10rem 0;
 }
 
 .header-headline {
@@ -88,5 +100,28 @@ code {
     &:active {
         -webkit-transform: scale(0.98);
                 transform: scale(0.98);
+    }
+}
+
+.wrap {
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+section {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+.sectionHeader {
+    font-size: 1.8rem;
+    margin-bottom: 1.5em;
+    a {
+        text-decoration: none;
+    }
+    a:hover:after {
+        content: "#";
+        padding-left: 0.35em;
+        opacity: 0.35;
     }
 }
