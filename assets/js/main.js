@@ -1,3 +1,7 @@
+import hljs from 'highlight.js';
+
+hljs.initHighlightingOnLoad();
+
 let gibberish = [
     '\u2588',
     '\u2593',

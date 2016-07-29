@@ -4,12 +4,20 @@
         <meta charset="utf-8">
         <title>Baffle.js</title>
         <link rel="stylesheet" href="./assets/css/main.min.css">
+
     </head>
     <body>
 
         <a class="btn" href="https://github.com/camwiegert/baffle"><i class="octicon octicon-octoface"></i> Source</a>
         <a class="btn" href="https://raw.githubusercontent.com/camwiegert/baffle/master/dist/baffle.min.js"><i class="octicon octicon-cloud-download"></i> Download Latest</a>
         <a class="btn" href="https://npmjs.com/package/baffle"><i class="octicon octicon-package"></i> npm/baffle</a>
+
+<pre><code class="javascript">let b = baffle('.someSelector').start();
+someAsyncFunction(result => {
+    // Swap in new text and reveal over 1500ms.
+    b.text(currentText => result.text).reveal(1500);
+});
+</code></pre>
 
         <script src="./dist/baffle.min.js"></script>
         <script src="./assets/js/main.bundle.js"></script>

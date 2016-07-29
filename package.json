@@ -2,7 +2,9 @@
   "name": "baffle-docs",
   "version": "1.0.0",
   "description": "The documentation site for baffle.js",
-  "dependencies": {},
+  "dependencies": {
+    "highlight.js": "^9.5.0"
+  },
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
@@ -12,15 +14,17 @@
     "webpack": "^1.13.1"
   },
   "scripts": {
-      "start": "npm run -s css:watch & npm run -s js:watch & npm run -s server",
-      "server": "http-server . -p 4567 -c-1 -s",
-      "js:watch": "webpack -wp",
-      "js:build": "webpack -p",
-      "css:watch": "node-sass -w --output-style compressed assets/css/main.scss assets/css/main.min.css",
-      "css:build": "node-sass --output-style compressed assets/css/main.scss assets/css/main.min.css"
+    "start": "npm run -s css:watch & npm run -s js:watch & npm run -s server",
+    "server": "http-server . -p 4567 -c-1 -s",
+    "js:watch": "webpack -wp",
+    "js:build": "webpack -p",
+    "css:watch": "node-sass -w --output-style compressed assets/css/main.scss assets/css/main.min.css",
+    "css:build": "node-sass --output-style compressed assets/css/main.scss assets/css/main.min.css"
   },
   "babel": {
-      "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "author": "Cam Wiegert <cam@camwiegert.com>",
   "license": "MIT",

@@ -1,10 +1,11 @@
+@import "monokai-sublime";
 @import "normalize";
 @import "octicons";
 @import "fonts";
 
 $fontFamily-mono: "ipm", "Menlo", "Courier New", monospace;
 
-$color-black: #333333;
+$color-black: #252525;
 $color-white: #ffffff;
 
 html {
@@ -22,4 +23,19 @@ body {
     position: relative;
     -webkit-font-smoothing: antialiased;
             font-smoothing: antialiased;
+}
+
+pre {
+    background-color: $color-black;
+    color: $color-white;
+    padding: 4rem 10rem;
+}
+
+code {
+    font-family: $fontFamily-mono;
+    line-height: 1.85;
+}
+
+.hljs {
+    background-color: transparent;
 }
