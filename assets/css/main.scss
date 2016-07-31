@@ -159,3 +159,16 @@ section {
         font-size: 1em;
     }
 }
+
+.demo-text {
+    margin-bottom: 2em;
+}
+
+.demo-buttons .btn {
+    display: inline-block;
+}
+
+.demo-buttons .btn code {
+    color: inherit;
+    background-color: transparent;
+}

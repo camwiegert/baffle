@@ -27,3 +27,35 @@ baffle('.header-headline', {
 baffle('.sectionHeader a')
     .start()
     .reveal(1500, 1500);
+
+let demoOnce   = document.querySelector('.js-demo-once');
+let demoStart  = document.querySelector('.js-demo-start');
+let demoStop   = document.querySelector('.js-demo-stop');
+let demoReveal = document.querySelector('.js-demo-reveal');
+let demoText   = document.querySelector('.js-demo-text');
+let demo       = baffle('.js-demo');
+
+demoOnce.addEventListener('click', function(e) {
+    e.preventDefault();
+    demo.once();
+});
+
+demoStart.addEventListener('click', function(e) {
+    e.preventDefault();
+    demo.start();
+});
+
+demoStop.addEventListener('click', function(e) {
+    e.preventDefault();
+    demo.stop();
+});
+
+demoReveal.addEventListener('click', function(e) {
+    e.preventDefault();
+    demo.reveal(1000);
+});
+
+demoText.addEventListener('click', function(e) {
+    e.preventDefault();
+    demo.text(text => text.split('').reverse().join(''));
+});
