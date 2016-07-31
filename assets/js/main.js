@@ -33,7 +33,7 @@ let demoStart  = document.querySelector('.js-demo-start');
 let demoStop   = document.querySelector('.js-demo-stop');
 let demoReveal = document.querySelector('.js-demo-reveal');
 let demoText   = document.querySelector('.js-demo-text');
-let demo       = baffle('.js-demo');
+let demo       = baffle('.js-demo', { characters: gibberish });
 
 demoOnce.addEventListener('click', function(e) {
     e.preventDefault();
