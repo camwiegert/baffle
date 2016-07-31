@@ -1,6 +1,6 @@
 {
   "name": "baffle",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A tiny, dependency-free utility for obfuscating and revealing text.",
   "main": "dist/baffle.min.js",
   "scripts": {
