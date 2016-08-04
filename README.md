@@ -1,9 +1,10 @@
 # baffle.js
 A tiny javascript library **for obfuscating and revealing text** in DOM elements.
 
+[camwiegert.github.io/baffle](https://camwiegert.github.io/baffle)
+
 > <img src="https://camwiegert.github.io/baffle/assets/images/baffle.js.png" width="500" alt="baffle.js">
 
-[camwiegert.github.io/baffle](https://camwiegert.github.io/baffle)
 
 - ~1.8kb gzipped :zap:
 - Dependency-free :tada:
