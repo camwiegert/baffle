@@ -1,9 +1,11 @@
 # baffle.js
 A tiny javascript library **for obfuscating and revealing text** in DOM elements.
 
-- ~1.8kb minified + gzipped :zap:
-- IE9+ :heavy_check_mark:
+[camwiegert.github.io/baffle](https://camwiegert.github.io/baffle)
+
+- ~1.8kb gzipped :zap:
 - Dependency-free :tada:
+- IE9+ :heavy_check_mark:
 
 ```javascript
 // Select elements and start.
