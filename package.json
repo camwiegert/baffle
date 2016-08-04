@@ -1,6 +1,6 @@
 {
   "name": "baffle",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A tiny javascript library for obfuscating and revealing text in DOM elements.",
   "main": "dist/baffle.min.js",
   "scripts": {
