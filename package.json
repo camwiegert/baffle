@@ -1,7 +1,7 @@
 {
   "name": "baffle",
   "version": "0.3.0",
-  "description": "A tiny, dependency-free utility for obfuscating and revealing text.",
+  "description": "A tiny javascript library for obfuscating and revealing text in DOM elements.",
   "main": "dist/baffle.min.js",
   "scripts": {
     "start": "webpack -wp",
