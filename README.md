@@ -1,6 +1,9 @@
 # baffle.js
+A tiny javascript library **for obfuscating and revealing text** in DOM elements.
 
-baffle is a tiny (~1.9kb) javascript utility **for obfuscating and revealing text** in DOM elements.
+- ~1.8kb minified + gzipped :zap:
+- IE9+ :heavy_check_mark:
+- Dependency-free :tada:
 
 ```javascript
 // Select elements and start.
@@ -24,8 +27,7 @@ npm install --save baffle
 ```
 
 #### Step 1: Reference
-
-If you linked baffle directly in your HTML, you'll find baffle at `window.baffle`. If you're using a module bundler, you'll need to import baffle.
+If you linked baffle directly in your HTML, you can use `window.baffle`. If you're using a module bundler, you'll need to import baffle.
 
 ```javascript
 // CommonJS
@@ -36,16 +38,20 @@ import baffle from 'baffle';
 ```
 
 #### Step 2: Initialize
-
-To initialize baffle, all you need to do is call it with a selector. You'll want to keep a reference to the instance.
+To initialize baffle, all you need to do is call it with some elements. You can pass a NodeList, Node, or CSS selector.
 
 ```javascript
-// Attaches baffle to any DOM element with class 'baffle'.
+// With a selector.
 let b = baffle('.baffle');
+
+// With a NodeList
+let b = baffle(document.querySelectorAll('.baffle'));
+
+// With a Node
+let b = baffle(document.querySelector('.baffle'));
 ```
 
 #### Step 3: Use It
-
 Once you have a baffle instance, you have access to all of the baffle methods. Usually, you'll want to `b.start()` and, eventually, `b.reveal()`.
 
 ```javascript
@@ -54,6 +60,9 @@ b.start();
 
 // Or stop obfuscating...
 b.stop();
+
+// Obfuscate once...
+b.once();
 
 // You can set options after intializing...
 b.set({...options});
@@ -70,3 +79,57 @@ b.start()
     .text(text => 'Hi dad!')
     .reveal(1000);
 ```
+
+## Options
+You can set options on baffle during initialization or anytime afterward with `baffle.set()`.
+
+```javascript
+// During initialize
+baffle('.baffle', {
+    characters: '+#-•=~*',
+    speed: 75
+});
+
+// Any time with set()
+b.set({
+    characters: ' ¯\_(ツ)_/¯',
+    speed: 25
+});
+```
+
+> ###`options.characters`
+> The characters baffle uses to obfuscate your text. It can be a string or an array of characters.
+> 
+> **Default:** `'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?'`
+
+> ### `options.speed`
+> This is the frequency (in milliseconds) at which baffle updates your text when running.
+>
+> **Default:** `50`
+
+## Methods
+An instance of baffle has six methods, all of which are chainable.
+
+> ###`baffle.once()`
+> Obfuscates each element once, using `options.characters`.
+
+> ###`baffle.start()`
+> Starts obfuscating your elements, updating every `options.speed` milliseconds.
+
+> ###`baffle.stop()`
+> Stops obfuscating your elements. This won't reveal your text. It will only stop updating it. To reveal it, use `reveal()`.
+
+> ###`baffle.reveal([duration], [delay])`
+> Reveals your text over `duration` milliseconds (default: `0`), with the option to delay by `delay` milliseconds.
+
+> ###`baffle.set([options])`
+> Updates instance options using the passed `options` object. You can set any number of keys, even while running.
+
+> ###`baffle.text(fn)`
+> Updates the text in each element of your instance using function `fn`, which receives the current text as it's only parameter. The value returned from `fn` will be used as the new text.
+
+==========================
+
+- **License** MIT
+- **Made by** [Cam Wiegert](http://camwiegert.com)
+- **Inspired by** [Oak](http://oak.is/)
