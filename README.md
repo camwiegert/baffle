@@ -21,6 +21,8 @@ someAsyncFunction(result => {
 });
 ```
 
+---
+
 ## Getting Started
 
 #### Step 0: Install
@@ -133,7 +135,7 @@ An instance of baffle has six methods, all of which are chainable.
 > ###`baffle.text(fn)`
 > Updates the text in each element of your instance using function `fn`, which receives the current text as it's only parameter. The value returned from `fn` will be used as the new text.
 
-==========================
+---
 
 - **License** MIT
 - **Made by** [Cam Wiegert](http://camwiegert.com)
