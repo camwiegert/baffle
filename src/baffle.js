@@ -76,7 +76,7 @@ class Baffle {
     text(fn) {
         each(this.elements, el => {
             el.text(fn(el.value));
-            if (!this.running) el.write();
+            if (el.revealed()) el.write();
         });
         return this;
     }
