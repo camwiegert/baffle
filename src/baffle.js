@@ -35,6 +35,7 @@ class Baffle {
     */
     once() {
         each(this.elements, el => el.write(this.options.characters));
+        this.running = true;
         return this;
     }
 
@@ -76,7 +77,7 @@ class Baffle {
     text(fn) {
         each(this.elements, el => {
             el.text(fn(el.value));
-            if (el.revealed()) el.write();
+            if (!this.running) el.write();
         });
         return this;
     }
@@ -95,6 +96,7 @@ class Baffle {
 
         const run = () => {
             clearInterval(this.interval);
+            this.running = true;
             this.interval = setInterval(() => {
 
                 // Get elements that haven't been fully revealed

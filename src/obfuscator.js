@@ -76,14 +76,6 @@ class Obfuscator {
         return this;
     }
 
-    /**
-    * Return true if any bit in bitmap is falsy. Otherwise,
-    * return false.
-    */
-    revealed() {
-        return !this.bitmap.every(bit => bit);
-    }
-
 }
 
 /**
