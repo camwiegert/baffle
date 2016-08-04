@@ -1,6 +1,8 @@
 # baffle.js
 A tiny javascript library **for obfuscating and revealing text** in DOM elements.
 
+> ![baffle.js](https://camwiegert.github.io/baffle/assets/images/baffle.js.png)
+
 [camwiegert.github.io/baffle](https://camwiegert.github.io/baffle)
 
 - ~1.8kb gzipped :zap:
@@ -101,7 +103,7 @@ b.set({
 
 > ###`options.characters`
 > The characters baffle uses to obfuscate your text. It can be a string or an array of characters.
-> 
+>
 > **Default:** `'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?'`
 
 > ### `options.speed`
