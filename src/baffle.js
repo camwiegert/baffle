@@ -1,5 +1,4 @@
 import {
-    each,
     extend,
     getElements
 } from './utils';
