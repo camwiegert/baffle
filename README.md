@@ -99,7 +99,7 @@ baffle('.baffle', {
 
 // Any time with set()
 b.set({
-    characters: ' ¯\_(ツ)_/¯',
+    characters: '¯\_(ツ)_/¯',
     speed: 25
 });
 ```
