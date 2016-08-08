@@ -104,10 +104,15 @@ b.set({
 });
 ```
 
-> ###`options.characters`
+> ### `options.characters`
 > The characters baffle uses to obfuscate your text. It can be a string or an array of characters.
 >
 > **Default:** `'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?'`
+
+> ### `options.exclude`
+> These are the characters that baffle ignores in your text when obfuscating it. You can pass in an array of characters.
+>
+> **Default:** `[' ']`
 
 > ### `options.speed`
 > This is the frequency (in milliseconds) at which baffle updates your text when running.
