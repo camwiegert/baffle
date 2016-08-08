@@ -8,6 +8,7 @@ import Obfuscator from './obfuscator';
 
 const defaults = {
     characters: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?'.split(''),
+    exclude: [' '],
     speed: 50
 };
 
@@ -34,7 +35,7 @@ class Baffle {
     * the provided characters.
     */
     once() {
-        each(this.elements, el => el.write(this.options.characters));
+        each(this.elements, el => el.write(this.options.characters, this.options.exclude));
         this.running = true;
         return this;
     }
@@ -106,7 +107,7 @@ class Baffle {
                 // Decay each by pace and write
                 each(elements, el => {
                     let pace = Math.ceil(el.value.length / cycles);
-                    el.decay(pace).write(this.options.characters);
+                    el.decay(pace).write(this.options.characters, this.options.exclude);
                 });
 
                 // If all elements are revealed, stop and init

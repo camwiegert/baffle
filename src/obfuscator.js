@@ -34,7 +34,7 @@ class Obfuscator {
     * or to itself, depending on whether the corresponding bitmap
     * index is truthy.
     */
-    render(characters = [], exclude = [' ']) {
+    render(characters = [], exclude = []) {
 
         // If no characters are provided, return the raw value.
         if (!characters.length) return this.value;
@@ -94,8 +94,8 @@ class ObfuscatorElement extends Obfuscator {
         this.element = element;
     }
 
-    write(chars) {
-        this.element.textContent = this.render(chars);
+    write(chars, exclude) {
+        this.element.textContent = this.render(chars, exclude);
         return this;
     }
 
