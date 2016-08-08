@@ -34,7 +34,7 @@ class Baffle {
     * the provided characters.
     */
     once() {
-        each(this.elements, el => el.write(this.options.characters));
+        this.elements.forEach(el => el.write(this.options.characters));
         this.running = true;
         return this;
     }
@@ -44,7 +44,7 @@ class Baffle {
     */
     start() {
         clearInterval(this.interval);
-        each(this.elements, el => el.init());
+        this.elements.forEach(el => el.init());
         this.interval = setInterval(() => this.once(), this.options.speed);
         this.running = true;
         return this;
@@ -75,7 +75,7 @@ class Baffle {
     * its only argument.
     */
     text(fn) {
-        each(this.elements, el => {
+        this.elements.forEach(el => {
             el.text(fn(el.value));
             if (!this.running) el.write();
         });
@@ -104,7 +104,7 @@ class Baffle {
                     !el.bitmap.every(bit => !bit));
 
                 // Decay each by pace and write
-                each(elements, el => {
+                elements.forEach(el => {
                     let pace = Math.ceil(el.value.length / cycles);
                     el.decay(pace).write(this.options.characters);
                 });
@@ -112,7 +112,7 @@ class Baffle {
                 // If all elements are revealed, stop and init
                 if (!elements.length) {
                     this.stop();
-                    each(this.elements, el => el.init());
+                    this.elements.forEach(el => el.init());
                 }
 
             }, this.options.speed);
