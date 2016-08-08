@@ -5,7 +5,8 @@ import {
     each,
     sample,
     getTruthyIndices,
-    extend
+    extend,
+    getElements
 } from '../src/utils';
 
 test('extend', t => {
@@ -79,4 +80,8 @@ test('getTruthyIndices', t => {
         undefined // falsy,  9
     ];
     t.deepEqual(getTruthyIndices(input), [0, 1, 3, 4, 7, 8]);
+});
+
+test('getElements with []', t => {
+    t.truthy(getElements([]));
 });

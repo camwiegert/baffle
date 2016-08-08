@@ -1,7 +1,7 @@
 import test from 'ava';
 import obfuscator from '../src/obfuscator';
 
-test('Obfuscator', t => {
+test('new', t => {
     const element = { textContent: 'test' };
     const instance = obfuscator(element);
 
@@ -10,7 +10,7 @@ test('Obfuscator', t => {
     t.deepEqual(instance.bitmap, [1, 1, 1, 1]);
 });
 
-test('Obfuscator text()', t => {
+test('text()', t => {
     const element = { textContent: 'test' };
     const instance = obfuscator(element);
 
@@ -21,7 +21,7 @@ test('Obfuscator text()', t => {
     t.deepEqual(instance.bitmap, [1, 1, 1]);
 });
 
-test('Obfuscator init()', t => {
+test('init()', t => {
     const element = { textContent: 'test' };
     const instance = obfuscator(element);
 
@@ -34,7 +34,7 @@ test('Obfuscator init()', t => {
     t.true(instance.bitmap.length === newValue.length);
 });
 
-test('Obfuscator decay()', t => {
+test('decay()', t => {
     const element = { textContent: 't' };
     const instance = obfuscator(element);
 
@@ -47,7 +47,7 @@ test('Obfuscator decay()', t => {
     t.deepEqual(instance.bitmap, [0]);
 });
 
-test('Obfuscator render()', t => {
+test('render()', t => {
     const tElement = { textContent: 't' };
     const wordsElement = { textContent: 'word word' };
 

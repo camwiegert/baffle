@@ -5,9 +5,9 @@
   "main": "dist/baffle.min.js",
   "scripts": {
     "start": "webpack -wp",
-    "build": "webpack -p",
+    "build": "BABEL_ENV=production webpack -p",
     "lint": "eslint src/**/*.js",
-    "test": "ava"
+    "test": "nyc ava"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,12 @@
           "loose": true
         }
       ]
-    ]
+    ],
+    "env": {
+      "development": {
+          "sourceMaps": "inline"
+      }
+    }
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -41,17 +46,20 @@
   "ava": {
     "babel": "inherit",
     "require": [
-      "babel-register"
+      "babel-register",
+      "./test/helpers/setup-browser-env.js"
     ]
   },
   "author": "Cam Wiegert <cam@camwiegert.com>",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.15.2",
+    "ava": "^0.16.0",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "eslint": "^3.1.1",
+    "jsdom": "^9.4.1",
+    "nyc": "^7.1.0",
     "stable-fn": "^1.0.0",
     "webpack": "^1.13.1"
   }

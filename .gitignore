@@ -16,3 +16,6 @@ Thumbs.db
 
 # Test page
 index.html
+
+.nyc_output/
+coverage/
