@@ -1,2 +1,2 @@
-import baffle from './baffle';
+import baffle from './baffleWithTask';
 module.exports = baffle;
