@@ -63,6 +63,11 @@ class BaffleWithTask {
 		this.task.addTaskToQueue(this.baffleStop);
 		return this;
 	}
+	stopImmediately() {
+		this.task.clearQueueImmediately();
+		this.baffleStop();
+		return this;
+	}
 	set(options) {
 		this.task.addTaskToQueue(_ => this.baffleSet(options));
 		return this;
