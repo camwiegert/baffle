@@ -1,5 +1,16 @@
 import baffle from './baffle';
 import taskQueue from './taskQueue';
+
+// baffle class with taskQueue in it;
+// apis are the same as baffle.js
+// add a new api :  await(time_ms)
+
+/* 
+	question: 
+		1. *text* method is not tested
+		2. *stop* method is push to queue, which means if there are tasks in the queue,the 'stop task' have to 
+				  wait until pre-tasks finished.need to add *stopImmediately* method
+*/
 class BaffleWithTask {
 	constructor(elements, options) {
 		this.baffle = baffle(elements, options);
@@ -19,7 +30,9 @@ class BaffleWithTask {
 	}
 
 	await(delay) {
-		this.task.addDelayToQueue(delay);
+		if (delay) {
+			this.task.addDelayToQueue(delay);
+		}
 		return this;
 	}
 	once() {
@@ -30,14 +43,16 @@ class BaffleWithTask {
 		this.task.addTaskToQueue(this.baffleStart);
 		return this;
 	}
+	// 
 	reveal(duration, delay) {
 		if (delay) {
 			this.task.addDelayToQueue(delay);
 		}
 		if (duration) {
 			// the reveal function in baffle use another *setInterval*, so need to add
-			// a delay in task
+			// a delay in task to prevent next task run directly
 			this.task.addTaskToQueue(_ => this.baffleReveal(duration));
+			// make taskQueue 1.2 times longer
 			this.task.addDelayToQueue(duration * 1.2);
 		} else {
 			this.task.addTaskToQueue(this.baffleReveal);
