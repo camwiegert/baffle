@@ -17,6 +17,8 @@ class taskQueue {
 		this.getTaskInQueue = this.getTaskInQueue.bind(this);
 		this.addDelayToQueue = this.addDelayToQueue.bind(this);
 		this.addTaskToQueue = this.addTaskToQueue.bind(this);
+		this.clearTasksInQueue = this.clearTasksInQueue.bind(this);
+		this.clearQueueImmediately = this.clearQueueImmediately.bind(this);
 		// set executeTask every 'checkDelay'ms
 		this.interval = setInterval(this.executeTask, checkDelay);
 		// store checkDelay
@@ -61,14 +63,23 @@ class taskQueue {
         return !this.queue.length;
     }
 
+    // get a task from the queue; if queue is empty, return *null*
     getTaskInQueue() {
         return this.queue.shift() || null;
     }
 
-		clearTasksInQueue() {
-			this.timeDelayTo = null;
-			this.queue = [];
-		}
+    // add a 'clear queue' task in queue;
+	clearTasksInQueue() {
+		this.queue.push({
+			type: 'clear-queur'
+		})
+	}
+
+	// clear a queue immediately 
+	clearQueueImmediately() {
+		this.queue = [];
+		this.timeDelayTo = null;
+	}
 
     addDelayToQueue(delay) {
     	this.queue.push({
@@ -86,10 +97,10 @@ class taskQueue {
     	return this;
     } 
 
-		addTaskWithDelay(task, delay) {
-			this.addDelayToQueue(delay);
-			this.addTaskToQueue(task);
-		}
+	addTaskWithDelay(task, delay) {
+		this.addDelayToQueue(delay);
+		this.addTaskToQueue(task);
+	}
 
 }
 
