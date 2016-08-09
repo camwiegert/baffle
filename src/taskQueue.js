@@ -71,10 +71,14 @@ class taskQueue {
     // add a 'clear queue' task in queue;
 	clearTasksInQueue() {
 		this.queue.push({
-			type: 'clear-queur'
+			type: 'clear-queue'
 		})
 	}
 
+	runImmediately(fn) {
+		fn();
+		return this;
+	}
 	// clear a queue immediately 
 	clearQueueImmediately() {
 		this.queue = [];
@@ -104,8 +108,4 @@ class taskQueue {
 
 }
 
-/*
-	let t = new taskQueue(10);
-	function log() {console.log((new Date()).toString())}
-	t.addTaskToQueue(log).addDelayToQueue(1000).addTaskToQueue(log).addDelayToQueue(2000).addTaskToQueue(log);
-*/
+export default delay => new taskQueue(delay);
