@@ -8,8 +8,11 @@ import taskQueue from './taskQueue';
 /* 
 	question: 
 		1. *text* method is not tested
-		2. *stop* method is push to queue, which means if there are tasks in the queue,the 'stop task' have to 
-				  wait until pre-tasks finished.need to add *stopImmediately* method
+		2. *stop* method will push a "stop task" to queue, which means if there are tasks in the queue,the "stop task" have to 
+				  wait until pre-tasks finished.Need to add *stopImmediately* method
+		3. the queue uses Array.shift which is O(n). This could cause some performance issue.[link](https://github.com/petkaantonov/deque#quick-start)
+				  is a library will better performance, whicn can be uesd to replace "Array.shifg"
+		4. taskQueue use setInterval to check the queue. It doesn't stop even if there are no task in queue.
 */
 class BaffleWithTask {
 	constructor(elements, options) {
