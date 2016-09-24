@@ -56,13 +56,10 @@ class Obfuscator {
 
     /**
     * Set count of the truthy indices in this.bitmap to 0,
-    * chosen randomly.
+    * chosen by revealStrategy.
     */
-    decay(count = 1) {
-        while (count--) {
-            let on = getTruthyIndices(this.bitmap);
-            this.bitmap[sample(on)] = 0;
-        }
+    decay(count = 1, revealStrategy) {
+        revealStrategy.decay(count, this.bitmap);
         return this;
     }
 

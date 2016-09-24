@@ -6,6 +6,8 @@ import {
 
 import Obfuscator from './obfuscator';
 
+import {initRevealStrategy} from './revealStrategies';
+
 const defaults = {
     characters: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?',
     exclude: [' '],
@@ -91,10 +93,15 @@ class Baffle {
     * Once all elements are revealed, call stop() and
     * initialize each element.
     */
-    reveal(duration = 0, delay = 0) {
+    reveal(reveal = {
+        duration: 0,
+        delay: 0,
+        from: 'random'
+    }) {
         // Number of cycles in duration
-        let cycles = duration / this.options.speed || 1;
+        let cycles = reveal.duration / this.options.speed || 1;
 
+        let revealStrategy = initRevealStrategy(reveal.from);
         const run = () => {
             clearInterval(this.interval);
             this.running = true;
@@ -107,7 +114,7 @@ class Baffle {
                 // Decay each by pace and write
                 each(elements, el => {
                     let pace = Math.ceil(el.value.length / cycles);
-                    el.decay(pace).write(this.options.characters, this.options.exclude);
+                    el.decay(pace, revealStrategy).write(this.options.characters, this.options.exclude);
                 });
 
                 // If all elements are revealed, stop and init
@@ -119,7 +126,7 @@ class Baffle {
             }, this.options.speed);
         };
 
-        setTimeout(run, delay);
+        setTimeout(run, reveal.delay);
         return this;
     }
 
