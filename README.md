@@ -1,4 +1,6 @@
 # baffle.js
+[![CDNJS version](https://img.shields.io/cdnjs/v/baffle.js.svg)](https://cdnjs.com/libraries/baffle.js)
+
 A tiny javascript library **for obfuscating and revealing text** in DOM elements.
 
 [camwiegert.github.io/baffle](https://camwiegert.github.io/baffle)
