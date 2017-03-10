@@ -12,7 +12,7 @@ A tiny javascript library **for obfuscating and revealing text** in DOM elements
 
 ```javascript
 // Select elements and start.
-let b = baffle('.someSelector').start();
+const b = baffle('.someSelector').start();
 
 // Do something else.
 someAsyncFunction(result => {
@@ -38,7 +38,7 @@ If you linked baffle directly in your HTML, you can use `window.baffle`. If you'
 
 ```javascript
 // CommonJS
-let baffle = require('baffle');
+const baffle = require('baffle');
 
 // ES6
 import baffle from 'baffle';
@@ -49,13 +49,13 @@ To initialize baffle, all you need to do is call it with some elements. You can 
 
 ```javascript
 // With a selector.
-let b = baffle('.baffle');
+const b = baffle('.baffle');
 
 // With a NodeList
-let b = baffle(document.querySelectorAll('.baffle'));
+const b = baffle(document.querySelectorAll('.baffle'));
 
 // With a Node
-let b = baffle(document.querySelector('.baffle'));
+const b = baffle(document.querySelector('.baffle'));
 ```
 
 #### Step 3: Use It
