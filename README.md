@@ -104,17 +104,17 @@ b.set({
 });
 ```
 
-> ### `options.characters`
+### `options.characters`
 > The characters baffle uses to obfuscate your text. It can be a string or an array of characters.
 >
 > **Default:** `'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?'`
 
-> ### `options.exclude`
+### `options.exclude`
 > These are the characters that baffle ignores in your text when obfuscating it. You can pass in an array of characters.
 >
 > **Default:** `[' ']`
 
-> ### `options.speed`
+### `options.speed`
 > This is the frequency (in milliseconds) at which baffle updates your text when running.
 >
 > **Default:** `50`
@@ -122,22 +122,22 @@ b.set({
 ## Methods
 An instance of baffle has six methods, all of which are chainable.
 
-> ###`baffle.once()`
+### `baffle.once()`
 > Obfuscates each element once, using `options.characters`.
 
-> ###`baffle.start()`
+### `baffle.start()`
 > Starts obfuscating your elements, updating every `options.speed` milliseconds.
 
-> ###`baffle.stop()`
+### `baffle.stop()`
 > Stops obfuscating your elements. This won't reveal your text. It will only stop updating it. To reveal it, use `reveal()`.
 
-> ###`baffle.reveal([duration], [delay])`
+### `baffle.reveal([duration], [delay])`
 > Reveals your text over `duration` milliseconds (default: `0`), with the option to delay by `delay` milliseconds.
 
-> ###`baffle.set([options])`
+### `baffle.set([options])`
 > Updates instance options using the passed `options` object. You can set any number of keys, even while running.
 
-> ###`baffle.text(fn)`
+### `baffle.text(fn)`
 > Updates the text in each element of your instance using function `fn`, which receives the current text as it's only parameter. The value returned from `fn` will be used as the new text.
 
 ---
