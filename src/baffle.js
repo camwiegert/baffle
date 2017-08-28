@@ -1,15 +1,12 @@
-import {
-    each,
-    extend,
-    getElements
-} from './utils';
+import { each, extend, getElements } from "./utils";
 
-import Obfuscator from './obfuscator';
+import Obfuscator from "./obfuscator";
 
 const defaults = {
-    characters: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?',
-    exclude: [' '],
-    speed: 50
+  characters:
+    "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?",
+  exclude: [" "],
+  speed: 50
 };
 
 /**
@@ -23,67 +20,68 @@ const defaults = {
 */
 
 class Baffle {
+  constructor(elements, options) {
+    this.options = extend(Object.create(defaults), options);
+    this.elements = getElements(elements).map(Obfuscator);
+    this.running = false;
+  }
 
-    constructor(elements, options) {
-        this.options  = extend(Object.create(defaults), options);
-        this.elements = getElements(elements).map(Obfuscator);
-        this.running  = false;
-    }
-
-    /**
+  /**
     * Call the write method on each Obfuscator once, using
     * the provided characters.
     */
-    once() {
-        each(this.elements, el => el.write(this.options.characters, this.options.exclude));
-        this.running = true;
-        return this;
-    }
+  once() {
+    each(this.elements, el =>
+      el.write(this.options.characters, this.options.exclude)
+    );
+    this.running = true;
+    return this;
+  }
 
-    /**
+  /**
     * Run once() every options.speed milliseconds.
     */
-    start() {
-        clearInterval(this.interval);
-        each(this.elements, el => el.init());
-        this.interval = setInterval(() => this.once(), this.options.speed);
-        this.running = true;
-        return this;
-    }
+  start() {
+    clearInterval(this.interval);
+    each(this.elements, el => el.init());
+    this.interval = setInterval(() => this.once(), this.options.speed);
+    this.running = true;
+    return this;
+  }
 
-    /**
+  /**
     * Stop any running interval.
     */
-    stop() {
-        clearInterval(this.interval);
-        this.running = false;
-        return this;
-    }
+  stop() {
+    clearInterval(this.interval);
+    this.running = false;
+    return this;
+  }
 
-    /**
+  /**
     * Set any options provided in the opts object. If
     * currently running, restart.
     */
-    set(opts) {
-        extend(this.options, opts);
-        if (this.running) this.start();
-        return this;
-    }
+  set(opts) {
+    extend(this.options, opts);
+    if (this.running) this.start();
+    return this;
+  }
 
-    /**
+  /**
     * Set the text in each element with the return value
     * of function fn, which receives the current text as
     * its only argument.
     */
-    text(fn) {
-        each(this.elements, el => {
-            el.text(fn(el.value));
-            if (!this.running) el.write();
-        });
-        return this;
-    }
+  text(fn) {
+    each(this.elements, el => {
+      el.text(fn(el.value));
+      if (!this.running) el.write();
+    });
+    return this;
+  }
 
-    /**
+  /**
     * Start a new interval, obfuscating fewer characters
     * on each cycle at pace to finish within duration
     * milliseconds. Optionally, delay by delay millseconds.
@@ -91,38 +89,39 @@ class Baffle {
     * Once all elements are revealed, call stop() and
     * initialize each element.
     */
-    reveal(duration = 0, delay = 0) {
-        // Number of cycles in duration
-        let cycles = duration / this.options.speed || 1;
+  reveal(duration = 0, delay = 0, callback) {
+    // Number of cycles in duration
+    let cycles = duration / this.options.speed || 1;
 
-        const run = () => {
-            clearInterval(this.interval);
-            this.running = true;
-            this.interval = setInterval(() => {
+    const run = () => {
+      clearInterval(this.interval);
+      this.running = true;
+      this.interval = setInterval(() => {
+        // Get elements that haven't been fully revealed
+        let elements = this.elements.filter(
+          el => !el.bitmap.every(bit => !bit)
+        );
 
-                // Get elements that haven't been fully revealed
-                let elements = this.elements.filter(el =>
-                    !el.bitmap.every(bit => !bit));
+        // Decay each by pace and write
+        each(elements, el => {
+          let pace = Math.ceil(el.value.length / cycles);
+          el.decay(pace).write(this.options.characters, this.options.exclude);
+        });
 
-                // Decay each by pace and write
-                each(elements, el => {
-                    let pace = Math.ceil(el.value.length / cycles);
-                    el.decay(pace).write(this.options.characters, this.options.exclude);
-                });
+        // If all elements are revealed, stop and init
+        if (!elements.length) {
+          this.stop();
+          each(this.elements, el => el.init());
+          if (callback && typeof callback === "function") {
+            callback();
+          }
+        }
+      }, this.options.speed);
+    };
 
-                // If all elements are revealed, stop and init
-                if (!elements.length) {
-                    this.stop();
-                    each(this.elements, el => el.init());
-                }
-
-            }, this.options.speed);
-        };
-
-        setTimeout(run, delay);
-        return this;
-    }
-
+    setTimeout(run, delay);
+    return this;
+  }
 }
 
 // Export a factory function so we don't need 'new'.
